@@ -6,7 +6,7 @@ namespace Assignment_1_2
     internal class Program
     {
 
-        private static double ArithmaticFunction(int a, int b, string mathType)
+        private static double ArithmaticFunction(double a, double b, string mathType)
         {
             switch (mathType)
             {
