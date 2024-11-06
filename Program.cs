@@ -6,7 +6,7 @@ namespace Assignment_1_2
     internal class Program
     {
 
-        private static double ArithmaticFunction(double a, double b, string mathType)
+        private static double PerformArithmatic(double a, double b, string mathType)
         {
             switch (mathType)
             {
@@ -78,7 +78,7 @@ namespace Assignment_1_2
             }
             while (mathType != "add" && mathType != "subtract" && mathType != "multiply" && mathType != "divide");
 
-            double sumOfMath = ArithmaticFunction(integerOne, integerTwo, mathType);
+            double sumOfMath = PerformArithmatic(integerOne, integerTwo, mathType);
             Console.WriteLine($"\n{integerOne} {mathType} {integerTwo} equals {sumOfMath}."); 
         }
     }
