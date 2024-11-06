@@ -6,6 +6,25 @@ namespace Assignment_1_2
     internal class Program
     {
 
+        private static double ArithmaticFunction(int a, int b, string mathType)
+        {
+            switch (mathType)
+            {
+                case "add":
+                    return a + b;
+                case "subtract":
+                    return a - b;
+                case "multiply":
+                    return a * b;
+                case "divide":
+                    if (b != 0)
+                        return a / b;
+                    else
+                        throw new DivideByZeroException("The divisor cannot be zero.");
+                default: throw new ArgumentException("Invalid math type.");
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -23,7 +42,7 @@ namespace Assignment_1_2
              * 5 and 15 are not equal */
 
             Console.WriteLine("Input an integer:");
-            int integerOne = Convert.ToInt32( Console.ReadLine() );
+            int integerOne = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("\nInput a second integer:");
             int integerTwo = Convert.ToInt32(Console.ReadLine());
 
@@ -40,7 +59,7 @@ namespace Assignment_1_2
             int sum = 0;
             for (int i = 0; i < 10; i++)
                 sum += i + 1;
-            Console.WriteLine("\n\nThe first 10 natural numbers are: \n1 2 3 4 5 6 7 8 9 10");
+            Console.WriteLine("\n\nThe first 10 natural numbers are:\n1 2 3 4 5 6 7 8 9 10");
             Console.WriteLine($"\nThe sum of these numbers is: {sum}");
 
 
@@ -50,5 +69,17 @@ namespace Assignment_1_2
              * Call them appropriately when user selects the option. 
              * Give the user the option to continue or exit the program. */
 
-}
+            string? mathType;
+            Console.WriteLine("\n\nThe different types of arithmatic calculations: \nadd subtract multiply divide");
+            do
+            {
+                Console.WriteLine("\nWhat kind of math problem would you like to perform?");
+                mathType = Console.ReadLine();
+            }
+            while (mathType != "add" && mathType != "subtract" && mathType != "multiply" && mathType != "divide");
+
+            double sumOfMath = ArithmaticFunction(integerOne, integerTwo, mathType);
+            Console.WriteLine($"\n{integerOne} {mathType} {integerTwo} equals {sumOfMath}."); 
+        }
+    }
 }
